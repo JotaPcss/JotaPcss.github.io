@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>João Pedro Sardenberg</title>
+<meta name="description" content="Currículo de João Pedro Sardenberg, analista de suporte N1 em Linux, formado em Sistemas de Informação. Busca oportunidade em desenvolvimento ou segurança da informação.">
+<meta name="theme-color" content="#eef1f4">
+<meta property="og:title" content="João Pedro Sardenberg">
+<meta property="og:description" content="Analista de suporte N1 em Linux, com Java e Spring Boot. Busca oportunidade em desenvolvimento ou segurança da informação.">
+<meta property="og:type" content="profile">
+<script>
+  // Roda antes da primeira pintura para a página não piscar no tema errado.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("tema"); } catch (e) {}
+    var dark = matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="no-print sticky top-0 z-20 border-b border-line bg-bg/90 backdrop-blur-sm">
+  <div class="gutter mx-auto flex h-14 max-w-[62rem] items-center justify-between gap-3 box-content">
+    <a href="#inicio" class="font-mono text-xs text-muted transition-colors hover:text-fg">SARDENBERG(1)</a>
+
+    <nav aria-label="Seções" class="hidden items-center gap-5 font-mono text-xs text-muted lg:flex">
+      <a class="link-quiet" href="#sobre">Sobre</a>
+      <a class="link-quiet" href="#experiencia">Experiência</a>
+      <a class="link-quiet" href="#projetos">Projetos</a>
+      <a class="link-quiet" href="#competencias">Competências</a>
+      <a class="link-quiet" href="#formacao">Formação</a>
+      <a class="link-quiet" href="#contato">Contato</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a class="btn show-after-hero" href="assets/Curriculo-Joao-Pedro-Sardenberg.pdf" download aria-label="Baixar currículo em PDF">PDF</a>
+      <button id="tema" type="button" class="btn" hidden>
+        <svg class="size-4 transition-transform duration-500 dark:rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>
+        </svg>
+        <span id="tema-nome" class="hidden sm:inline"></span>
+      </button>
+    </div>
+  </div>
+  <div class="scroll-progress absolute inset-x-0 -bottom-px h-0.5 origin-left scale-x-0 bg-accent"></div>
+</header>
+
+<main id="inicio" class="gutter mx-auto grid max-w-[62rem] gap-11 pt-10 pb-12 box-content sm:pt-14">
+
+  <section class="flex flex-col-reverse gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="grid min-w-0 gap-5">
+      <h1 class="font-display text-[clamp(2.6rem,9vw,5.5rem)] leading-[0.98] font-extrabold tracking-[-0.025em]">
+        <span class="name-line block" style="--i:0">João Pedro</span>
+        <span class="name-line block" style="--i:1">Sardenberg</span>
+      </h1>
+      <p class="max-w-[44rem] text-[clamp(1.1rem,2.4vw,1.4rem)] leading-snug text-balance">Analista de suporte N1 em Linux, formado em Sistemas de Informação. Busco uma oportunidade em desenvolvimento ou segurança da informação.</p>
+      <p class="flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm text-muted">
+        <span>Niterói, RJ</span>
+        <span>Remoto, híbrido ou presencial</span>
+      </p>
+      <div class="no-print flex flex-wrap gap-2">
+        <a class="btn btn-primary" href="assets/Curriculo-Joao-Pedro-Sardenberg.pdf" download>
+          <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 21h16"/></svg>
+          Baixar currículo em PDF
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/joao-pedro-sardenberg-3959a9201/">LinkedIn</a>
+        <a class="btn" href="https://github.com/JotaPcss">GitHub</a>
+      </div>
+    </div>
+    <!-- Foto: salvar em assets/foto.jpg (quadrada, pelo menos 480 x 480) e tirar este comentário da linha abaixo.
+    <img src="assets/foto.jpg" alt="Foto de João Pedro Sardenberg" width="480" height="480" class="size-28 shrink-0 border border-line object-cover sm:size-36 md:size-48">
+    -->
+  </section>
+
+  <section id="sobre" class="@container scroll-mt-20 border-t border-line pt-5">
+    <div class="grid gap-3 @2xl:grid-cols-[9.5rem_minmax(0,1fr)] @2xl:gap-6">
+      <h2 class="section-label self-start @2xl:sticky @2xl:top-20">Sobre</h2>
+      <div class="reveal grid max-w-[40rem] gap-3.5">
+        <p>Trabalho na Linux Solutions desde 2022. Entrei como estagiário, fui efetivado em 2023 e hoje sou analista de suporte N1.</p>
+        <p>Além de atender chamados, participo de reuniões de projeto com clientes e faço a ligação entre eles e a minha equipe, levantando as próximas demandas.</p>
+        <p>Quero migrar para desenvolvimento ou segurança. Java foi a linguagem que mais usei na faculdade, e no meu TCC desenvolvi sozinho uma carteirinha universitária digital. Também estou me preparando para iniciar um MBA em segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" class="xp @container scroll-mt-20 border-t border-line pt-5">
+    <div class="grid gap-3 @2xl:grid-cols-[9.5rem_minmax(0,1fr)] @2xl:gap-6">
+      <h2 class="section-label self-start @2xl:sticky @2xl:top-20">Experiência</h2>
+      <div class="grid min-w-0 gap-7">
+
+        <figure class="timeline reveal grid gap-3 border border-line bg-surface p-4 pb-3" style="--today:97.22%" aria-label="Linha do tempo de trabalho e estudo, de 2021 a 2026">
+          <div class="tl-row" data-job="n1">
+            <div class="flex flex-wrap justify-between gap-x-3 text-[0.8125rem] leading-snug">Analista de Suporte N1 <span class="font-mono text-xs text-muted">jul. 2023, atual</span></div>
+            <div class="tl-track"><div class="tl-bar" style="--start:41.67%;--size:56.94%;--color:var(--bar-work)"></div></div>
+          </div>
+          <div class="tl-row" data-job="estagio">
+            <div class="flex flex-wrap justify-between gap-x-3 text-[0.8125rem] leading-snug">Estagiário, Linux Solutions <span class="font-mono text-xs text-muted">ago. 2022 a jul. 2023</span></div>
+            <div class="tl-track"><div class="tl-bar" style="--start:26.39%;--size:15.28%;--color:var(--bar-intern)"></div></div>
+          </div>
+          <div class="tl-row" data-job="ccr">
+            <div class="flex flex-wrap justify-between gap-x-3 text-[0.8125rem] leading-snug">Aprendiz, CCR S.A. <span class="font-mono text-xs text-muted">mar. 2021 a set. 2023</span></div>
+            <div class="tl-track"><div class="tl-bar" style="--start:2.78%;--size:43.06%;--color:var(--bar-other)"></div></div>
+          </div>
+          <div class="tl-row" data-job="curso">
+            <div class="flex flex-wrap justify-between gap-x-3 text-[0.8125rem] leading-snug">Sistemas de Informação, Unilasalle-RJ <span class="font-mono text-xs text-muted">jan. 2021 a jun. 2026</span></div>
+            <div class="tl-track"><div class="tl-bar" style="--start:0%;--size:91.67%;--color:var(--bar-study)"></div></div>
+          </div>
+          <div class="grid grid-cols-6 font-mono text-[0.6875rem] leading-snug text-muted tabular-nums" aria-hidden="true">
+            <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+          </div>
+        </figure>
+
+        <article id="job-n1" class="shift reveal grid gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold">Analista de Suporte N1</h3>
+          <p class="meta">Linux Solutions Informática · CLT · jul. 2023 até hoje · Remoto</p>
+          <ul class="mt-1 grid max-w-[40rem] list-['-_'] gap-1 pl-4 marker:font-mono marker:text-muted">
+            <li>Atendimento de chamados de suporte.</li>
+            <li>Participação em reuniões de projeto com clientes.</li>
+            <li>Levantamento de demandas futuras e alinhamento entre clientes e equipe técnica.</li>
+          </ul>
+        </article>
+
+        <article id="job-estagio" class="shift reveal grid gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold">Estagiário</h3>
+          <p class="meta">Linux Solutions Informática · ago. 2022 a jul. 2023 · Remoto</p>
+          <ul class="mt-1 grid max-w-[40rem] list-['-_'] gap-1 pl-4 marker:font-mono marker:text-muted">
+            <li>Implementação e configuração de monitoramento com Zabbix e Grafana.</li>
+            <li>Atendimento de chamados de suporte.</li>
+            <li>Participação em reuniões de projeto com clientes.</li>
+            <li>Levantamento de demandas futuras e alinhamento entre clientes e equipe técnica.</li>
+          </ul>
+        </article>
+
+        <article id="job-ccr" class="shift reveal grid gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold">Assistente administrativo</h3>
+          <p class="meta">CCR S.A. · Aprendiz · mar. 2021 a set. 2023 · Rio de Janeiro</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos" class="@container scroll-mt-20 border-t border-line pt-5">
+    <div class="grid gap-3 @2xl:grid-cols-[9.5rem_minmax(0,1fr)] @2xl:gap-6">
+      <h2 class="section-label self-start @2xl:sticky @2xl:top-20">Projetos</h2>
+      <div class="grid min-w-0 gap-7">
+
+        <article class="shift reveal grid max-w-[40rem] gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold"><a class="link-grow" href="https://github.com/JotaPcss/carteirinha-tcc">Carteirinha Universitária Digital</a></h3>
+          <p>Meu TCC, desenvolvido sozinho. O estudante cria a conta, envia a foto e, depois da aprovação do administrador, recebe um QR Code com validade, que pode ser verificado publicamente.</p>
+          <p class="meta">Java 21, Spring Boot, Spring Security, JWT, MySQL, React, TypeScript, Docker</p>
+        </article>
+
+        <article class="shift reveal grid max-w-[40rem] gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold"><a class="link-grow" href="https://github.com/JotaPcss/FlexaJJ">FlexaJJ</a></h3>
+          <p>Sistema de check-in para uma academia de jiu-jitsu.</p>
+          <p class="meta">Java 17, Spring Boot, Spring Security, Thymeleaf, MySQL</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="competencias" class="@container scroll-mt-20 border-t border-line pt-5">
+    <div class="grid gap-3 @2xl:grid-cols-[9.5rem_minmax(0,1fr)] @2xl:gap-6">
+      <h2 class="section-label self-start @2xl:sticky @2xl:top-20">Competências</h2>
+      <dl class="@container reveal grid min-w-0 gap-3.5 has-[div:hover]:[&>div:not(:hover)]:opacity-40">
+        <div class="grid gap-x-4 gap-y-0.5 transition-opacity duration-200 @md:grid-cols-[9rem_minmax(0,1fr)]">
+          <dt class="text-[0.9375rem] font-semibold">Desenvolvimento</dt>
+          <dd>Java, Spring Boot, Spring Security, JWT, MySQL, Git, HTML, CSS, JavaScript</dd>
+        </div>
+        <div class="grid gap-x-4 gap-y-0.5 transition-opacity duration-200 @md:grid-cols-[9rem_minmax(0,1fr)]">
+          <dt class="text-[0.9375rem] font-semibold">Infraestrutura</dt>
+          <dd>Linux, Zabbix, Grafana</dd>
+        </div>
+        <div class="grid gap-x-4 gap-y-0.5 transition-opacity duration-200 @md:grid-cols-[9rem_minmax(0,1fr)]">
+          <dt class="text-[0.9375rem] font-semibold">Com clientes</dt>
+          <dd>Atendimento ao cliente, levantamento de requisitos, reuniões de projeto</dd>
+        </div>
+        <div class="grid gap-x-4 gap-y-0.5 transition-opacity duration-200 @md:grid-cols-[9rem_minmax(0,1fr)]">
+          <dt class="text-[0.9375rem] font-semibold">Pessoais</dt>
+          <dd>Comunicativo, adaptativo, autodidata, ótimo relacionamento com pessoas e grupos</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="formacao" class="@container scroll-mt-20 border-t border-line pt-5">
+    <div class="grid gap-3 @2xl:grid-cols-[9.5rem_minmax(0,1fr)] @2xl:gap-6">
+      <h2 class="section-label self-start @2xl:sticky @2xl:top-20">Formação</h2>
+      <div class="grid min-w-0 gap-7">
+        <article class="reveal grid gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold">Bacharelado em Sistemas de Informação</h3>
+          <p class="meta">Unilasalle-RJ · jan. 2021 a jun. 2026</p>
+        </article>
+        <article class="reveal grid gap-1.5">
+          <h3 class="text-[1.0625rem] leading-snug font-semibold">Inglês B2 (Upper Intermediate)</h3>
+          <p class="meta">EF SET English Certificate · 56/100 · ago. 2026</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contato" class="scroll-mt-20 border-t border-line bg-surface">
+  <div class="gutter mx-auto grid max-w-[62rem] gap-8 pt-10 pb-6 box-content">
+    <div class="grid gap-2">
+      <h2 class="section-label">Contato</h2>
+      <a class="link-grow w-fit font-display text-[clamp(1.15rem,5.6vw,3rem)] leading-tight font-semibold tracking-[-0.01em]" href="mailto:sardenbergjoao@gmail.com">sardenbergjoao@gmail.com</a>
+    </div>
+    <div class="flex flex-wrap justify-between gap-x-6 gap-y-1 font-mono text-xs text-muted">
+      <span>Niterói, RJ</span>
+      <span>novembro de 2026</span>
+      <span>SARDENBERG(1)</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var botao = document.getElementById("tema");
+    var nome = document.getElementById("tema-nome");
+    var cor = document.querySelector('meta[name="theme-color"]');
+
+    function mostrar() {
+      var escuro = root.dataset.theme === "dark";
+      nome.textContent = escuro ? "tema: escuro" : "tema: claro";
+      botao.setAttribute("aria-label", escuro ? "Mudar para o tema claro" : "Mudar para o tema escuro");
+      cor.content = escuro ? "#12171d" : "#eef1f4";
+    }
+
+    function aplicar(tema) {
+      root.dataset.theme = tema;
+      try { localStorage.setItem("tema", tema); } catch (e) {}
+      mostrar();
+    }
+
+    botao.addEventListener("click", function () {
+      var tema = root.dataset.theme === "dark" ? "light" : "dark";
+      var calmo = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!document.startViewTransition || calmo) { aplicar(tema); return; }
+
+      // O círculo nasce no centro do botão e cresce até cobrir o canto mais distante da tela.
+      var r = botao.getBoundingClientRect();
+      var x = r.left + r.width / 2;
+      var y = r.top + r.height / 2;
+      var raio = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+      document.startViewTransition(function () { aplicar(tema); }).ready.then(function () {
+        root.animate(
+          { clipPath: ["circle(0 at " + x + "px " + y + "px)", "circle(" + raio + "px at " + x + "px " + y + "px)"] },
+          { duration: 550, easing: "cubic-bezier(0.4, 0, 0.2, 1)", pseudoElement: "::view-transition-new(root)" }
+        );
+      });
+    });
+
+    mostrar();
+    botao.hidden = false;
+  })();
+</script>
+</body>
+</html>

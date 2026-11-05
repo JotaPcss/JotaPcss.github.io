@@ -1,0 +1,318 @@
+@import "tailwindcss" source(none);
+@source "../index.html";
+
+/* O tema vem do atributo data-theme no <html>, definido antes da primeira pintura. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #eef1f4;
+  --surface: #ffffff;
+  --fg: #17212c;
+  --muted: #55636f;
+  --line: #cdd5dc;
+  --accent: #1a56c4;
+  --on-accent: #ffffff;
+  --bar-work: #1a56c4;
+  --bar-intern: #5f8fe0;
+  --bar-other: #8796a3;
+  --bar-study: #2f8a6c;
+  color-scheme: light;
+}
+
+/* Sem JavaScript, segue a preferência do aparelho. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #12171d;
+    --surface: #1a2129;
+    --fg: #e6ebf0;
+    --muted: #9dabb7;
+    --line: #2f3a45;
+    --accent: #8db6ff;
+    --on-accent: #12171d;
+    --bar-work: #5b8fe8;
+    --bar-intern: #3a65ad;
+    --bar-other: #66747f;
+    --bar-study: #35926f;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #12171d;
+  --surface: #1a2129;
+  --fg: #e6ebf0;
+  --muted: #9dabb7;
+  --line: #2f3a45;
+  --accent: #8db6ff;
+  --on-accent: #12171d;
+  --bar-work: #5b8fe8;
+  --bar-intern: #3a65ad;
+  --bar-other: #66747f;
+  --bar-study: #35926f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  html {
+    /* Cresce um pouco em telas muito grandes, sem passar de 18px. */
+    font-size: clamp(100%, 0.875rem + 0.2vw, 112.5%);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}
+
+@layer components {
+  /* Respeita o recorte de telas com notch, inclusive com o aparelho deitado. */
+  .gutter {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .section-label {
+    font: 500 0.75rem/1.6 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .meta {
+    font: 400 0.8125rem/1.5 var(--font-mono);
+    color: var(--muted);
+  }
+
+  /* Sublinhado que cresce da esquerda para a direita. */
+  .link-grow {
+    color: var(--accent);
+    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 100% 1px;
+    transition: background-size 0.25s ease;
+  }
+  .link-grow:hover {
+    background-size: 0% 1px;
+  }
+  .link-quiet {
+    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0% 1px;
+    transition: background-size 0.25s ease, color 0.2s ease;
+  }
+  .link-quiet:hover {
+    background-size: 100% 1px;
+    color: var(--fg);
+  }
+
+  /* Botão: a cor nova entra pela esquerda, animando o tamanho do fundo. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    border: 1px solid var(--line);
+    font: 500 0.8125rem/1 var(--font-mono);
+    color: var(--fg);
+    background: linear-gradient(var(--fg), var(--fg)) no-repeat left / 0% 100%;
+    transition: background-size 0.3s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    background-size: 100% 100%;
+    border-color: var(--fg);
+    color: var(--bg);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: var(--on-accent);
+  }
+
+  /* Linha do tempo em escala: jan. 2021 = 0%, jan. 2027 = 100% (72 meses). */
+  .tl-row {
+    display: grid;
+    gap: 0.2rem;
+    transition: opacity 0.2s ease;
+  }
+  .tl-track {
+    position: relative;
+    height: 0.8rem;
+    background-image: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% / 6));
+  }
+  .tl-track::after {
+    content: "";
+    position: absolute;
+    inset-block: -0.2rem;
+    left: var(--today);
+    width: 1px;
+    background: var(--fg);
+    opacity: 0.45;
+  }
+  .tl-bar {
+    position: absolute;
+    inset-block: 0;
+    left: var(--start);
+    width: var(--size);
+    background: var(--color);
+    transform-origin: left;
+  }
+
+  /* Passar o mouse numa linha, ou num cargo, destaca só aquele período. */
+  .timeline:has(.tl-row:hover) .tl-row:not(:hover),
+  .xp:has(#job-n1:hover) .tl-row:not([data-job="n1"]),
+  .xp:has(#job-estagio:hover) .tl-row:not([data-job="estagio"]),
+  .xp:has(#job-ccr:hover) .tl-row:not([data-job="ccr"]) {
+    opacity: 0.35;
+  }
+
+  /* Só as telas com mouse recebem o recuo ao passar por cima. */
+  @media (hover: hover) {
+    .shift {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-left: 2px solid transparent;
+      padding-left: 0.75rem;
+      margin-left: calc(-0.75rem - 2px);
+    }
+    .shift:hover {
+      border-left-color: var(--accent);
+      transform: translateX(0.25rem);
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* O nome ganha peso ao carregar, usando o eixo variável da fonte. */
+  .name-line {
+    animation: weight-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: calc(var(--i) * 140ms);
+    transition: font-weight 0.35s ease;
+  }
+  @media (hover: hover) {
+    .name-line:hover {
+      font-weight: 300;
+    }
+  }
+
+  /* Animações ligadas à rolagem. Em navegadores sem suporte, a página aparece completa. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    .tl-bar {
+      animation: grow linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    .scroll-progress {
+      animation: fill linear both;
+      animation-timeline: scroll(root);
+    }
+    .show-after-hero {
+      animation: appear linear both;
+      animation-timeline: scroll(root);
+      animation-range: 12rem 18rem;
+    }
+  }
+}
+
+@keyframes weight-in {
+  from {
+    font-weight: 200;
+    opacity: 0;
+    transform: translateY(0.12em);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* A troca de tema é desenhada pelo script, com um círculo que sai do botão. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #000000;
+    --muted: #333333;
+    --line: #999999;
+    --accent: #000000;
+    color-scheme: light;
+  }
+  html {
+    font-size: 10.5pt;
+  }
+  .no-print {
+    display: none !important;
+  }
+  article {
+    break-inside: avoid;
+  }
+}
